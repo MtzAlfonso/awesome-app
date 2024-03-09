@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NameModalComponent } from './components/name-modal/name-modal.component';
+import { ViewService } from 'src/app/services/view.service';
 
 @Component({
   templateUrl: './welcome-page.component.html',
@@ -9,12 +10,15 @@ import { NameModalComponent } from './components/name-modal/name-modal.component
 export class WelcomePageComponent implements OnInit {
   name: string;
 
-  constructor(public dialog: MatDialog) {
+  constructor(
+    public dialog: MatDialog,
+    private readonly viewService: ViewService
+  ) {
     this.name = '';
   }
 
   ngOnInit(): void {
-    console.log('WelcomePageComponent initialized');
+    this.viewService.changeTitle('Bienvenido');
   }
 
   openDialog(): void {
