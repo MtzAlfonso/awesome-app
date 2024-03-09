@@ -1,0 +1,17 @@
+<div mat-dialog-content>
+  <p>¿Cuál es tu nombre?</p>
+  <mat-form-field appearance="standard">
+    <mat-label>Ingresa tu nombre</mat-label>
+    <input matInput type="text" placeholder="text" [(ngModel)]="data.name" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button type="button" mat-button (click)="onNoClick()">No Thanks</button>
+  <button
+    type="button"
+    mat-button
+    [mat-dialog-close]="data.name"
+    cdkFocusInitial>
+    Ok
+  </button>
+</div>

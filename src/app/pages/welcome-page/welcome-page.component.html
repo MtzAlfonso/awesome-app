@@ -1,1 +1,21 @@
-<p>welcome-page works!</p>
+<section class="banner text-center">
+  <section class="banner-drop">
+    <h1 class="h1">Bienvenido a mi portal</h1>
+    <p class="lead">Nos podrías indicar tu nombre...</p>
+    <p *ngIf="name" class="lead">
+      El nombre ingresado es:
+      <span class="text-warning">
+        {{ name | cambioLetras }}
+      </span>
+    </p>
+    <section>
+      <button
+        type="button"
+        mat-flat-button
+        color="primary"
+        (click)="openDialog()">
+        Escribe tu nombre
+      </button>
+    </section>
+  </section>
+</section>
