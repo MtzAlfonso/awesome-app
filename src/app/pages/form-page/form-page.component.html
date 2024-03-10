@@ -1,1 +1,157 @@
-<p>form-page works!</p>
+<section class="container my-4">
+  <mat-card class="py-4 p-lg-5">
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="mb-4 mb-lg-0">Formulario de datos personales</h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>
+          Este formulario te permite ingresar tus datos personales y algunos
+          datos de interés.
+        </p>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="container mt-4">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <section class="row">
+          <section class="col-12 col-lg-6">
+            <img
+              src="/assets/images/form.svg"
+              alt="Formulario"
+              class="img-fluid w-75 mx-auto d-block mb-2 mb-lg-0" />
+          </section>
+          <section class="col-12 col-lg-6">
+            <section class="row mb-3">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label>Nombre/s</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="name"
+                  placeholder="Ingresa tu nombre" />
+                <mat-error *ngIf="name?.hasError('required')">
+                  El nombre es obligatorio
+                </mat-error>
+                <mat-error *ngIf="name?.hasError('noWhiteSpaceAtEnd')">
+                  El nombre no puede tener espacios al final
+                </mat-error>
+              </mat-form-field>
+            </section>
+
+            <section class="row mb-3">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label>Apellido/s</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="lastName"
+                  placeholder="Ingresa tus apellidos" />
+                <mat-error *ngIf="lastName?.hasError('required')">
+                  El apellido es obligatorio
+                </mat-error>
+                <mat-error *ngIf="lastName?.hasError('noWhiteSpaceAtEnd')">
+                  El apellido no puede tener espacios al final
+                </mat-error>
+              </mat-form-field>
+            </section>
+
+            <section class="row mb-3">
+              <div class="col-12">
+                <label id="smoker-label">¿Fumas?</label>
+                <br />
+                <mat-radio-group
+                  aria-label="Elige una opción"
+                  formControlName="isSmoker"
+                  aria-labelledby="smoker-label">
+                  <mat-radio-button [value]="true">Sí</mat-radio-button>
+                  <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </section>
+
+            <section class="row mb-3">
+              <div class="col-12">
+                <label id="reader-label"
+                  >¿Actualmente practicas la lectura?</label
+                >
+                <br />
+                <mat-radio-group
+                  aria-label="Elige una opción"
+                  formControlName="isReader"
+                  aria-labelledby="reader-label">
+                  <mat-radio-button [value]="true">Sí</mat-radio-button>
+                  <mat-radio-button [value]="false">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </section>
+
+            <section class="row" formArrayName="readedBooks">
+              <label id="book-label" class="col-12">
+                Libros leidos en los últimos 3 meses
+              </label>
+              <mat-form-field
+                appearance="fill"
+                class="col-12"
+                *ngFor="let book of readedBooks.controls; let i = index"
+                [formGroupName]="i">
+                <mat-label> Libro {{ i + 1 }} </mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="bookName"
+                  placeholder="Ingresa el nombre del libro" />
+                <button
+                  *ngIf="readedBooks.length > 1"
+                  type="button"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Borrar"
+                  (click)="removeBook(i)">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <mat-error *ngIf="book?.get('bookName')?.hasError('required')">
+                  El nombre del libro no puede estar vacío
+                </mat-error>
+              </mat-form-field>
+              <div class="col-12 text-right mb-4">
+                <button
+                  type="button"
+                  matSuffix
+                  mat-flat-button
+                  aria-label="Agregar"
+                  color="accent"
+                  [disabled]="!isReader?.value"
+                  (click)="addBook()">
+                  <mat-icon>add</mat-icon>
+                  Añadir otro libro
+                </button>
+              </div>
+            </section>
+
+            <section class="row">
+              <mat-form-field appearance="fill" class="col-12">
+                <mat-label>Estado civil</mat-label>
+                <mat-select formControlName="civilStatus">
+                  <mat-option
+                    *ngFor="let option of civilStatusOptions"
+                    [value]="option.value">
+                    {{ option.label }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </section>
+
+            <section class="row my-3">
+              <div class="col text-right">
+                <button type="submit" mat-raised-button color="primary">
+                  Validar
+                </button>
+              </div>
+            </section>
+          </section>
+        </section>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

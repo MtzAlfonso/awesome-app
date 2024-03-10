@@ -8,9 +8,7 @@ import { CalcDateUnits } from './enums/calc-date-units.enum';
   styles: [],
 })
 export class DatePageComponent implements OnInit {
-  constructor(private viewService: ViewService) {
-    this.viewService.changeTitle('Calcular fecha');
-  }
+  constructor(private viewService: ViewService) {}
 
   date?: Date;
   unit?: CalcDateUnits;
@@ -19,7 +17,7 @@ export class DatePageComponent implements OnInit {
   UNITS = CalcDateUnits;
 
   ngOnInit(): void {
-    console.log('DatePageComponent initialized');
+    this.viewService.changeTitle('Calcular fecha');
   }
 
   addEvent(event: MatDatepickerInputEvent<Date>) {

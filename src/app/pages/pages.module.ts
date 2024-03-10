@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
@@ -13,7 +14,6 @@ import { PagesLayoutComponent } from './layout/layout.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { LogoutModalComponent } from './layout/components/logout-modal/logout-modal.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MaterialModule,
     PagesRoutingModule,
+    ReactiveFormsModule,
     SharedModule,
   ],
 })

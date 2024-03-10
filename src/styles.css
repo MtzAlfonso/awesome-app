@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --custom-bg-dark: #b4d4ff !important;
+  --custom-bg-light: #eef5ff !important;
+}
+
 html,
 body {
   height: 100%;
@@ -7,5 +12,12 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  background-color: #eee !important;
+}
+
+.custom-bg-dark {
+  background-color: var(--custom-bg-dark) !important;
+}
+
+.mat-card {
+  background-color: var(--custom-bg-light) !important;
 }
