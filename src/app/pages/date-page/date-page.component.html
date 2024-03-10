@@ -1,1 +1,129 @@
-<p>date-page works!</p>
+<section class="container mt-4">
+  <mat-card class="p-5">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Calculadora de fechas</h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>
+          Esta es una calculadora de fechas que te permite sumar o restar días,
+          meses o años a una fecha dada.
+        </p>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content class="container mt-4">
+      <section class="row">
+        <section class="col-12 col-lg-6">
+          <section class="row">
+            <mat-form-field appearance="fill" class="col-12">
+              <mat-label>Ingresa una fecha</mat-label>
+              <input
+                type="text"
+                matInput
+                [value]="date"
+                [matDatepicker]="picker"
+                (dateChange)="addEvent($event)"
+                placeholder="dd/mm/aaaa" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </section>
+
+          <section class="row">
+            <mat-form-field appearance="fill" class="col-12">
+              <mat-label>Elige la unidad</mat-label>
+              <mat-select
+                [(value)]="unit"
+                [disabled]="!date"
+                matTooltip="Debes elegir una fecha para poder seleccionar una operación"
+                aria-label="Elige la unidad (días, meses o años)"
+                [matTooltipDisabled]="!!date">
+                <mat-option [value]="UNITS.DAYS">Días</mat-option>
+                <mat-option [value]="UNITS.MONTHS">Meses</mat-option>
+                <mat-option [value]="UNITS.YEARS">Años</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </section>
+
+          <section class="row">
+            <mat-form-field appearance="fill" class="col-12">
+              <mat-label>Ingresa la cantidad</mat-label>
+              <input
+                type="number"
+                matInput
+                [disabled]="!unit"
+                matTooltip="Debes elegir una operación para poder ingresar un número"
+                [matTooltipDisabled]="!!unit"
+                placeholder="Número de días, meses o años"
+                [(ngModel)]="num" />
+            </mat-form-field>
+          </section>
+
+          <section class="row justify-content-end">
+            <div class="col-6 col-md-4">
+              <button
+                *ngIf="!!result"
+                type="button"
+                mat-raised-button
+                color="accent"
+                class="w-100"
+                (click)="reset()">
+                Reiniciar
+              </button>
+            </div>
+            <div class="col-6 col-md-4">
+              <button
+                type="button"
+                mat-raised-button
+                color="primary"
+                class="w-100"
+                [disabled]="!date || !unit || !num"
+                matTooltip="Debes elegir una fecha, una operación y un número para poder calcular"
+                [matTooltipDisabled]="!!date && !!unit && !!num"
+                (click)="calculate()">
+                {{ !result ? 'Calcular' : 'Re-calcular' }}
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <section class="col-12 col-lg-6 mt-5 mt-lg-0">
+          <p class="row align-items-center" *ngIf="!!date">
+            <strong class="col-6 col-lg-4">Fecha seleccionada:</strong>
+            <span class="col-6 col-lg-8 lead">{{
+              date | date: 'dd/MM/yyyy'
+            }}</span>
+          </p>
+
+          <p class="row align-items-center" *ngIf="!!unit">
+            <strong class="col-6 col-lg-4">Unidad seleccionada:</strong>
+            <span class="col-6 col-lg-8 lead" *ngIf="unit === UNITS.DAYS">
+              Días
+            </span>
+            <span class="col-6 col-lg-8 lead" *ngIf="unit === UNITS.MONTHS">
+              Meses
+            </span>
+            <span class="col-6 col-lg-8 lead" *ngIf="unit === UNITS.YEARS">
+              Años
+            </span>
+          </p>
+
+          <p class="row align-items-center" *ngIf="!!num">
+            <strong class="col-6 col-lg-4">Cantidad a sumar:</strong>
+            <span class="col-6 col-lg-8 lead">{{ num }}</span>
+          </p>
+
+          <p class="row align-items-center mt-5" *ngIf="!!result">
+            <strong class="col-6 col-lg-4">El resultado es:</strong>
+            <span class="col-6 col-lg-8 lead">{{
+              result | date: 'dd/MM/yyyy'
+            }}</span>
+          </p>
+        </section>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</section>

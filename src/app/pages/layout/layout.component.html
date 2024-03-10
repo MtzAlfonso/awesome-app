@@ -1,16 +1,35 @@
-<mat-drawer-container [hasBackdrop]="false" class="h-100">
-  <mat-drawer #drawer mode="side" class="mat-drawer">
+<mat-drawer-container [hasBackdrop]="true" class="h-100">
+  <mat-drawer #drawer mode="over" class="mat-drawer">
+    <mat-toolbar color="accent" class="d-flex justify-content-between">
+      <h2 class="m-0">Menú</h2>
+      <button type="button" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
     <mat-nav-list>
-      <app-nav-link link="/pages/bienvenido" icon="home">
+      <app-nav-link
+        link="/pages/bienvenido"
+        icon="home"
+        Bienvenido
+        (click)="drawer.toggle()">
         Bienvenido
       </app-nav-link>
-      <app-nav-link link="/pages/conversiones" icon="swap_horiz">
+      <app-nav-link
+        link="/pages/conversiones"
+        icon="swap_horiz"
+        (click)="drawer.toggle()">
         Conversiones
       </app-nav-link>
-      <app-nav-link link="/pages/calcula-fecha" icon="event">
+      <app-nav-link
+        link="/pages/calcula-fecha"
+        icon="event"
+        (click)="drawer.toggle()">
         Calcula fecha
       </app-nav-link>
-      <app-nav-link link="/pages/formulario" icon="assignment">
+      <app-nav-link
+        link="/pages/formulario"
+        icon="assignment"
+        (click)="drawer.toggle()">
         Formulario
       </app-nav-link>
     </mat-nav-list>
@@ -22,7 +41,7 @@
           <button type="button" mat-icon-button (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
           </button>
-          <h1 class="m-0">{{ title }}</h1>
+          <h1 class="ml-3">{{ title }}</h1>
         </section>
         <section class="ml-auto">
           <button type="button" mat-button (click)="openDialog()">

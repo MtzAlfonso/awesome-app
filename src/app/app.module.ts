@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,12 @@ import { MaterialModule } from './material/material.module';
     MaterialModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: 'es-MX',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
