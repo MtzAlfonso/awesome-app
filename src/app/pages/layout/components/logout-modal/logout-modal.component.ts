@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-logout-modal',
@@ -7,7 +8,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class LogoutModalComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<LogoutModalComponent>,
+    private readonly authService: AuthService,
+    private readonly dialogRef: MatDialogRef<LogoutModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -17,5 +19,10 @@ export class LogoutModalComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('LogoutModalComponent initialized');
+  }
+
+  logout() {
+    this.authService.logout();
+    this.dialogRef.close();
   }
 }

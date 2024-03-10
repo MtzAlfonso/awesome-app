@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     MaterialModule,
     SharedModule,
   ],

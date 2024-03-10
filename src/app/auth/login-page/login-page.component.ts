@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -8,7 +9,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginPageComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly authService: AuthService
+  ) {
     this.loginForm = this.buildLoginForm();
   }
 
@@ -37,6 +41,9 @@ export class LoginPageComponent implements OnInit {
     if (this.loginForm.value.rememberMe) {
       this._rememberSession(this.loginForm.value.username);
     } else this._clearSession();
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+    this.authService.login(username, password);
   }
 
   private _rememberSession(username: string) {
