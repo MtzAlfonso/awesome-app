@@ -7,14 +7,19 @@
   color: white;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 64px);
+  height: calc(100vh - 56px);
   position: relative;
+}
+
+@media screen and (min-width: 600px) {
+  .banner {
+    height: calc(100vh - 64px);
+  }
 }
 
 .banner-drop {
   display: flex;
   flex-direction: column;
-  padding: 5rem;
   width: 100%;
   gap: 1rem;
 }

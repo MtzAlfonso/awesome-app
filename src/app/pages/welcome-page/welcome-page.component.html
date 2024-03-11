@@ -1,14 +1,20 @@
-<section class="banner text-center">
-  <section class="banner-drop">
-    <h1 class="h1">Bienvenido a mi portal</h1>
-    <p class="lead">¿Nos podrías indicar tu nombre?</p>
-    <p *ngIf="name" class="lead">
-      El nombre ingresado es:
-      <span class="text-warning">
-        {{ name | cambioLetras }}
-      </span>
-    </p>
-    <section>
+<section class="banner text-center container-fluid">
+  <section class="row justify-content-center py-5 px-4 px-lg-5">
+    <div class="col-12 col-lg-7">
+      <h1 class="h1">¡Bienvenido a mi App!</h1>
+    </div>
+    <div class="col-12 col-lg-7">
+      <p class="lead">¿Me podrías indicar tu nombre?</p>
+    </div>
+    <div class="col-12 col-lg-7 mt-4 mt-lg-5" *ngIf="name">
+      <div class="row justify-content-center">
+        <p class="col-12 col-lg-6 lead">El nombre ingresado es:</p>
+        <p class="col-12 col-md-8 col-lg-6 lead text-warning bg-dark rounded">
+          {{ name | cambioLetras }}
+        </p>
+      </div>
+    </div>
+    <section class="col-12 mt-4 mt-lg-5">
       <button
         type="button"
         mat-flat-button
