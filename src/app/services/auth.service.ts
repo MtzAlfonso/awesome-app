@@ -24,7 +24,7 @@ export class AuthService {
   async login(username: string, password: string) {
     this.spinner.show();
     await waitFor(2_000);
-    if (username !== 'admin' && password !== 'admin') {
+    if (username !== 'admin' || password !== 'admin') {
       this.isLoggedIn = false;
       this.spinner.hide();
       this._showSnackbar('Usuario o contraseña incorrectos');
@@ -46,14 +46,20 @@ export class AuthService {
   }
 
   private _restoreSession() {
-    const token = localStorage.getItem('token');
-    if (!token) return;
-    const data = JSON.parse(this._decodeLocalToken(token));
-    if (!data?.username || !data?.password) {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+      const data = JSON.parse(this._decodeLocalToken(token));
+      if (data.username !== 'admin' || data.password !== 'admin') {
+        console.log({ data });
+        this.logout();
+        return;
+      }
+      this.isLoggedIn = true;
+    } catch (error) {
+      console.error(error);
       this.logout();
-      return;
     }
-    this.isLoggedIn = true;
   }
 
   private _createLocalToken(username: string, password: string) {
