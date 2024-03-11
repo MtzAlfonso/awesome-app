@@ -6,6 +6,10 @@ It is an awesome application that allows you to do a lot of things.
 
 - [@MtzAlfonso](https://github.com/MtzAlfonso)
 
+## 🔗 Demo
+
+To see live demo of the app, click [here](https://awesome-app-one.vercel.app/)
+
 ## 🛠 Tech Stack
 
 - Angular 13.x.x
