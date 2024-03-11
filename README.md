@@ -97,43 +97,43 @@ The user can fill a form and validate it with Angular's reactive forms and custo
 
 ### Login page
 
-![Login page](./screenshots/login.png)
-![Login page mobile](./screenshots/login-responsive.png)
+<img src="./screenshots/login.png" alt="Login page Desktop" width="100%" />
+<img src="./screenshots/login-responsive.png" alt="Login page Mobile" width="50%" />
 
 ### Welcome page
 
-![Welcome page empty](./screenshots/welcome-1.png)
-![Welcome page modal](./screenshots/welcome-2.png)
-![Welcome page filled](./screenshots/welcome-3.png)
-![Welcome page mobile](./screenshots/welcome-responsive.png)
+<img src="./screenshots/welcome-1.png" alt="Welcome page empty" width="100%" />
+<img src="./screenshots/welcome-2.png" alt="Welcome page modal" width="100%" />
+<img src="./screenshots/welcome-3.png" alt="Welcome page filled" width="100%" />
+<img src="./screenshots/welcome-responsive.png" alt="Welcome page mobile" width="50%" />
 
 ### Sidebar
 
-![Sidebar](./screenshots/sidebar.png)
-![Sidebar mobile](./screenshots/sidebar-responsive.png)
+<img src="./screenshots/sidebar.png" alt="Sidebar" width="100%" />
+<img src="./screenshots/sidebar-responsive.png" alt="Sidebar mobile" width="50%" />
 
 ### Conversion page
 
-![Conversion page](./screenshots/conversions.png)
-![Conversion page mobile](./screenshots/conversions-responsive.png)
+<img src="./screenshots/conversions.png" alt="Conversion page" width="100%" />
+<img src="./screenshots/conversions-responsive.png" alt="Conversion page mobile" width="50%" />
 
 ### Calculate date page
 
-![Calculate date page empty](./screenshots/calculate-date-1.png)
-![Calculate date page filled](./screenshots/calculate-date-2.png)
-![Calculate date page mobile](./screenshots/calculate-date-responsive.png)
+<img src="./screenshots/calculate-date-1.png" alt="Calculate date page empty" width="100%" />
+<img src="./screenshots/calculate-date-2.png" alt="Calculate date page filled" width="100%" />
+<img src="./screenshots/calculate-date-responsive.png" alt="Calculate date page mobile" width="50%" />
 
 ### Reactive form page
 
-![Reactive form page empty](./screenshots/form-1.png)
-![Reactive form page filled](./screenshots/form-2.png)
-![Reactive form page mobile](./screenshots/form-responsive-1.png)
-![Reactive form page mobile filled](./screenshots/form-responsive-2.png)
+<img src="./screenshots/form-1.png" alt="Reactive form page empty" width="100%" />
+<img src="./screenshots/form-2.png" alt="Reactive form page filled" width="100%" />
+<img src="./screenshots/form-responsive-1.png" alt="Reactive form page mobile" width="50%" />
+<img src="./screenshots/form-responsive-2.png" alt="Reactive form page mobile filled" width="50%" />
 
 ### Logout modal
 
-![Logout modal](./screenshots/logout.png)
-![Logout modal mobile](./screenshots/logout-responsive.png)
+<img src="./screenshots/logout.png" alt="Logout modal" width="100%" />
+<img src="./screenshots/logout-responsive.png" alt="Logout modal mobile" width="50%" />
 
 ## 🧪 Testing
 
