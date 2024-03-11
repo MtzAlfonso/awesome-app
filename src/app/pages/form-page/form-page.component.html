@@ -13,7 +13,7 @@
     </mat-card-header>
 
     <mat-card-content class="container mt-4">
-      <form [formGroup]="form" (ngSubmit)="submit()">
+      <form [formGroup]="form" (ngSubmit)="submit()" (reset)="reset()">
         <section class="row">
           <section class="col-12 col-lg-6">
             <img
@@ -144,6 +144,13 @@
 
             <section class="row my-3">
               <div class="col text-right">
+                <button
+                  type="reset"
+                  mat-stroked-button
+                  color="warn"
+                  class="mr-3">
+                  Limpiar
+                </button>
                 <button type="submit" mat-raised-button color="primary">
                   Validar
                 </button>

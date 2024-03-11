@@ -5,7 +5,7 @@ import { CalcDateUnits } from './enums/calc-date-units.enum';
 
 @Component({
   templateUrl: './date-page.component.html',
-  styles: [],
+  styleUrls: ['./date-page.component.css'],
 })
 export class DatePageComponent implements OnInit {
   constructor(private viewService: ViewService) {}

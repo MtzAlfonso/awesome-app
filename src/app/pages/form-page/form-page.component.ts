@@ -107,6 +107,14 @@ export class FormPageComponent implements OnInit, OnDestroy {
     this.showSnackBar('✅ Formulario correcto');
   }
 
+  reset() {
+    this._resetBooksArray();
+    this.form.reset({
+      isSmoker: false,
+      isReader: false,
+    });
+  }
+
   showSnackBar(message: string) {
     this.snackBar.open(message, 'Cerrar', {
       duration: 3000,
@@ -147,5 +155,14 @@ export class FormPageComponent implements OnInit, OnDestroy {
 
   removeBook(index: number) {
     this.readedBooks.removeAt(index);
+  }
+
+  private _resetBooksArray() {
+    this.readedBooks.clear();
+    this.readedBooks.push(
+      this.fb.group({
+        bookName: [{ value: '', disabled: true }, []],
+      })
+    );
   }
 }
