@@ -45,7 +45,7 @@ describe('ChangeLetterPipe', () => {
     expect(pipe.transform('Hola cómo estás?')).toBe('H0l4 c0m0 3st4s?');
   });
 
-  it('should not transform "HOLA CÓMO ESTÁS?"', () => {
+  it('should transform "HOLA CÓMO ESTÁS?" to "H0L4 C0M0 3ST4S?"', () => {
     const pipe = new ChangeLetterPipe();
     expect(pipe.transform('HOLA CÓMO ESTÁS?')).toBe('H0L4 C0M0 3ST4S?');
   });
